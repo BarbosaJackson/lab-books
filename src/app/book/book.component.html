@@ -1,0 +1,36 @@
+<div style="text-align:left;width:500px;margin: 0px auto;">
+
+  <table *ngIf="books">
+    <tr>
+      <th>Titulo</th>
+      <th>Autor</th>
+      <th>Status</th>
+      <th>Está com</th>
+    </tr>
+    <tr *ngFor="let b of books">
+      <td>{{b.title}}</td>
+      <td>{{b.author}}</td>
+      <td>{{defineStatus(b)}}</td>
+      <td>{{definePerson(b)}}</td>
+    </tr>
+  </table>
+
+  <button (click)="addBook()">add livro</button>
+  <div id="my-form">
+    <form [hidden]="!addBookB">
+
+      <div class="form-group">
+      <label for="title">Titulo</label>
+        <input type="text" name="title" id="title" value="">
+      </div>
+
+      <div class="form-group">
+        <label for="author">Autor</label>
+        <input type="text" id="author">
+      </div>
+
+      <button type="submit" (click)="newBook()">Adicionar</button>
+    </form>
+  </div>
+</div>
+
